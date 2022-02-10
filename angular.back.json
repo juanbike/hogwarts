@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": false
+    "analytics": "b230d3e5-5506-445e-adc9-e202576864a4"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "student": {
+    "hogwarts": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/student",
+            "outputPath": "dist/hogwarts",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,15 +31,11 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-            "node_modules/jquery/dist/jquery.js",
-            "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
-            ]
-          },
+            ],
           "configurations": {
             "production": {
               "budgets": [
@@ -77,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "student:build:production"
+              "browserTarget": "hogwarts:build:production"
             },
             "development": {
-              "browserTarget": "student:build:development"
+              "browserTarget": "hogwarts:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "student:build"
+            "browserTarget": "hogwarts:build"
           }
         },
         "test": {
@@ -111,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "student"
+  "defaultProject": "hogwarts"
 }

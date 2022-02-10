@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center">
+    <h3 class="heading">
+      <strong class="text-light">Listado de profesores de Harry Potter</strong>
+    </h3>
+  </div>
+  
+  <div class="form-group container pb-3">
+    <button
+      type="button"
+      class="btn btn-primary btn-sm mb-2"
+      (click)="getTeacher()"
+    >
+      Consiga su lista de profesores
+    </button>
+  </div>
+  
+  <div class="container" [ngStyle]="{ display: display }">
+      <button class="btn btn-warning btn-sm mb-2" (click)="hideTable()">Ocultar</button>
+    <table class="table table-dark table-striped table-bordered row-border hover">
+      <thead>
+        <tr>
+          <th class="" style="width: 20rem;">Name</th>
+          <th>patronus</th>
+          <th>Age</th>
+          <th class="" style="width: 10rem;">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of Teachers">
+          <td>{{ teacher.name }}</td>
+          <td>{{ teacher.patronus }}</td>
+          <td>{{ teacher.yearOfBirth }}</td>
+  
+          <div class="card" style="width: 10rem;">
+            <td><img src="{{ teacher.image }}" class="img-fluid" /></td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

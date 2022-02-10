@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+    <h3 class="heading">
+      <strong class="text-light">Visualice los Personajes de Harry Potter por casa de hechicería</strong>
+    </h3>
+  </div>
+  
+  <div class="form-group container">
+    <select (change)="getHouse($event)" class="btn btn-primary dropdown-toggle">
+     class="form-control" >
+      <option value="default">Casa de Hechiceria</option>
+      <option *ngFor="let house of houses; index as i" [value]="house">
+        {{ i }} {{ house }}
+      </option>
+    </select>
+  </div>
+  
+ 
+  <div [ngStyle]="{ display: display }" class="container" >
+    <div class="d-flex justify-content-center">
+      <h4>Personajes más influyentes</h4>
+    </div>
+    <button class="btn btn-warning btn-sm mb-2" (click)="hideTable()">Ocultar</button>
+    <table class="table table-dark table-striped table-bordered row-border hover">
+      <thead>
+        <tr>
+          <th class="" style="width: 20rem;">Name</th>
+          <th>patronus</th>
+          <th>Age</th>
+          <th class="" style="width: 10rem;">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let character of Characters">
+          <td>{{ character.name }}</td>
+          <td>{{ character.patronus }}</td>
+          <td>{{ character.yearOfBirth }}</td>
+  
+          <div class="card" style="width: 10rem;">
+            <td><img src="{{ character.image }}" class="img-fluid" /></td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

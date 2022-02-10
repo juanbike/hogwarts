@@ -1,0 +1,140 @@
+<div class="container" style="background-image: url(../../../assets/img/1024px-Halloween-house.jpg);">
+    <div class="row justify-content-md-center">
+      <div class="col-4">
+        <form [formGroup]="addStudentForm">
+          <h4 class="mb-4">Agregar estudiante</h4>
+  
+          <!----Nombre ------>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                /></svg
+            ></span>
+            <input
+            [(ngModel)]="personStudent.name"
+              type="text"
+              class="form-control"
+              placeholder="nombre | El campo es obligatorio"
+              aria-label="name"
+              aria-describedby="basic-addon1"
+              formControlName='name'
+              required
+            />
+          </div>
+          <div *ngIf="(nameControl.dirty || nameControl.touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="nameControl.errors?.['required']">
+                El nombre es requerido
+            </div>
+        </div>    
+  
+          <!----Patonus ------>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-people"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                />
+              </svg>
+            </span>
+            <input
+            [(ngModel)]="personStudent.patronus"
+              type="text"
+              class="form-control"
+              placeholder="Patronus | El campo es obligatorio"
+              aria-label="patronus"
+              aria-describedby="basic-addon1"
+              formControlName='patronus'
+              required
+            />            
+        </div>
+        <div *ngIf="(patronusControl.dirty || patronusControl.touched)" class="alert alert-danger">
+            <div *ngIf="patronusControl.errors?.['required']">
+               Patronus es requerido
+            </div>
+        </div>
+        
+
+
+
+          <!----age  -->
+
+        
+          <div class="row g-3">
+            <div class="col-3">
+              <input
+              [(ngModel)]="personStudent.yearOfBirth"
+                  type="number"
+                  class="form-control"
+                  placeholder="Edad"
+                  aria-label="age"
+                  formControlName='age'
+                />
+              
+            </div>
+          </div>
+           
+          
+          
+          
+            <!----Url image  -->
+           <div class="row g-3">
+            <label for="urlImagen" class="form-label"><h5>Url de la imagen</h5></label>
+            <input [(ngModel)]="personStudent.image"
+            type="text"
+             class="form-control" id="urlImagen"
+             placeholder="Ejemplo:https://example.com/users/techer.jpg"
+             formControlName="urlImage">
+            
+          </div>
+
+                  
+          
+          <div class="col-8 mt-3">
+            <button (click)="addTekStudent1()" type="submit" class="btn btn-primary" [disabled]="addStudentForm.invalid">Agregar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div [ngStyle]="{display:display1}" class="container">
+  <table   class="table  table table-hover table-bordered" id="datatablehowarts">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let personStudent of students">
+        <td>{{personStudent.id}}</td>
+        <td>{{personStudent.name}}</td>
+        <td>{{personStudent.yearOfBirth}}</td>
+        <td>{{personStudent.image}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

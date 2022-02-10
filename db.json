@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Harry Potter",
+      "yearOfBirth": "1980",
+      "patronus": "stag",
+      "image": "http://hp-api.herokuapp.com/images/harry.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Hermione Granger",
+      "yearOfBirth": "1979",
+      "patronus": "otter",
+      "image": "http://hp-api.herokuapp.com/images/hermione.jpeg"
+    },
+    {
+      "id": 7,
+      "name": "Daniel Arteaga",
+      "yearOfBirth": "1964",
+      "patronus": "otter",
+      "image": "http://hp-api.herokuapp.com/images/hermione.jpeg"
+    },
+    {
+      "name": "Juan Arteaga",
+      "yearOfBirth": "1964",
+      "patronus": "otter",
+      "image": "http://hp-api.herokuapp.com/images/hermione.jpeg",
+      "id": 8
+    }
+  ]
+}

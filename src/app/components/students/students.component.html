@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+    <h3 class="heading">
+      <strong class="text-light">Listado de Estudiantes de Harry Potter</strong>
+    </h3>
+  </div>
+  
+  <div class="form-group container pt-3">
+    <div
+      class="btn-group mb-2"
+      style="margin-left: 0.7rem;"
+      role="group"
+      aria-label="Basic outlined example"
+    >
+      <button
+        type="button"
+        class="btn btn-primary pt-3"
+        (click)="getBachelor()"
+      >
+        Consiga su lista de estudiantes
+      </button>
+
+      <button type="button" class="btn btn-primary" #clicked >
+        <a (click)="hicistesClick(clicked.value)">Agregar estudiante</a>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div [ngStyle]="{ display: display }" class="container">
+    <button class="btn btn-warning btn-sm mb-2" (click)="hideTable()">Ocultar</button>
+    <table class="table table-dark table-striped table-bordered row-border hover">
+      <thead>
+        <tr>
+          <th class="" style="width: 20rem;">Name</th>
+          <th>patronus</th>
+          <th>Age</th>
+          <th class="" style="width: 10rem;">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.name }}</td>
+          <td>{{ student.patronus }}</td>
+          <td>{{ student.yearOfBirth }}</td>
+  
+          <div class="card" style="width: 10rem;">
+            <td><img src="{{ student.image }}" class="img-fluid" /></td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
